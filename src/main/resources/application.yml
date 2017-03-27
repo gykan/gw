@@ -1,0 +1,11 @@
+camel:
+  springboot:
+    main-run-controller: true
+    
+spring:
+  main:
+    sources: com.gykan.services.gateway.GatewayRouter
+
+logging:
+  level:
+    org.apache.camel: DEBUG

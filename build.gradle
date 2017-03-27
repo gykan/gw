@@ -1,0 +1,55 @@
+group 'com.gykan'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+def springBootVersion = '1.5.2.RELEASE'
+def camelVersion = '2.18.2'
+def lombokVersion = '1.16.8'
+
+dependencies {
+    compile(
+            "org.apache.camel:camel-jackson:${camelVersion}",
+            "org.apache.camel:camel-http:${camelVersion}",
+            "org.apache.camel:camel-consul-starter:${camelVersion}",
+            "org.apache.camel:camel-netty4-http:${camelVersion}",
+            "org.apache.camel:camel-swagger-java-starter:${camelVersion}",
+            "org.springframework.boot:spring-boot-devtools",
+            "org.projectlombok:lombok:${lombokVersion}",
+            "com.gykan:common:${project.version}"
+    )
+    testCompile(
+            "junit:junit:4.12",
+            "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    )
+}
+
+springBoot {
+    mainClass = 'org.apache.camel.spring.boot.FatJarRouter'
+}
+
+
+bootRun {
+    addResources = true
+    jvmArgs = ["-Dconsul=http://localhost:8500"]
+}
