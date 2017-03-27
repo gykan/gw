@@ -12,8 +12,8 @@ buildscript {
                 username artUsername
                 password artPassword
             }
-            url "http://localhost:8081/ext-snapshot-local"
-            name = "maven-ext-snapshot"
+            url "http://localhost:8081/libs-snapshot"
+            name = "local-libs-snapshot"
         }
     }
     dependencies {
@@ -29,7 +29,7 @@ apply plugin: 'org.springframework.boot'
 repositories {
     mavenCentral()
     mavenLocal()
-    add buildscript.repositories.getByName("maven-ext-snapshot")
+    add buildscript.repositories.getByName("local-libs-snapshot")
 }
 
 def springBootVersion = '1.5.2.RELEASE'
