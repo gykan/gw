@@ -12,7 +12,7 @@ buildscript {
                 username artUsername
                 password artPassword
             }
-            url "http://sc3125:8081/libs-snapshot"
+            url "https://2a3c3f11.ngrok.io/artifactory/libs-snapshot"
             name = "local-libs-snapshot"
         }
     }
