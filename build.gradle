@@ -12,7 +12,7 @@ buildscript {
                 username artUsername
                 password artPassword
             }
-            url "http://localhost:8081/libs-snapshot"
+            url "http://sc3125:8081/libs-snapshot"
             name = "local-libs-snapshot"
         }
     }
