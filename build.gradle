@@ -12,7 +12,7 @@ buildscript {
                 username artUsername
                 password artPassword
             }
-            url "http://art.nykanon.dtdns.net/artifactory/libs-snapshot"
+            url "http://artifactory-http:8081/artifactory/libs-snapshot"
             name = "local-libs-snapshot"
         }
     }
